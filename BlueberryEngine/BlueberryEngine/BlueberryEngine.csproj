@@ -13,6 +13,11 @@
     <None Remove="Icon.ico" />
     <None Remove="Icon.bmp" />
     <None Remove="BlueberryEngine\" />
+    <None Remove="BlueberryEngine\ECS\" />
+    <None Remove="BlueberryEngine\ECS\BaseSystems\" />
+    <None Remove="Example\" />
+    <None Remove="Example\Components\" />
+    <None Remove="Example\Systems\" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Icon.ico" />
@@ -30,5 +35,10 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="BlueberryEngine\" />
+    <Folder Include="BlueberryEngine\ECS\" />
+    <Folder Include="BlueberryEngine\ECS\Systems\" />
+    <Folder Include="Example\" />
+    <Folder Include="Example\Components\" />
+    <Folder Include="Example\Systems\" />
   </ItemGroup>
 </Project>

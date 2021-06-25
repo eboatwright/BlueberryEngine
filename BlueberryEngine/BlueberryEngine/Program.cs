@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace eboatwright {
+namespace eboatwright.Example {
     public static class Program {
         [STAThread]
         static void Main() {
