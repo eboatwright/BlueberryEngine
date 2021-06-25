@@ -33,14 +33,11 @@ namespace eboatwright.Example {
 
             scene = new Scene("scene");
 
-            blueberry = new Entity("blueberry");
-            blueberry.AddComponents(new List<IComponent>(){
-                new Transform(new Vector2(0f, 0f), new Vector2(1f, 1f), 0f),
+            blueberry = scene.CreateEntity("blueberry", new List<IComponent>() {
+                new Transform(Vector2.Zero, Vector2.One, 0f),
                 new SpriteRenderer(Content.Load<Texture2D>("img/blueberry"), Color.White),
-                new Player(3f, 0.8f, Keys.W, Keys.S, Keys.A, Keys.D),
+                new Player(2f, 0.85f, Keys.W, Keys.S, Keys.A, Keys.D),
             });
-
-            scene.AddEntity(blueberry);
 
             scene.AddUpdateSystem(new PlayerSystem());
             scene.AddDrawSystem(new SpriteRendererSystem());

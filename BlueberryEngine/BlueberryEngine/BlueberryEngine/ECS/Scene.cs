@@ -15,6 +15,14 @@ namespace BlueberryEngine.ECS {
             this.id = id;
         }
 
+        public Entity CreateEntity(string id, List<IComponent> components) {
+            Entity newEntity = new Entity(id);
+            newEntity.AddComponents(components);
+
+            AddEntity(newEntity);
+            return newEntity;
+        }
+
         public Entity AddEntity(Entity entity) {
             entities.Add(entity);
             return entity;
