@@ -13,17 +13,17 @@ namespace eboatwright.Example {
         }
 
         public void Update(Entity entity, float deltaTime, MouseState mouse, KeyboardState keyboard) {
-            Transform t = (Transform)entity.GetComponent("transform");
+            RigidBody rb = (RigidBody)entity.GetComponent("rigidBody");
             Player player = (Player)entity.GetComponent("player");
 
             if (keyboard.IsKeyDown(player.up))
-                t.position.Y -= player.moveSpeed;
+                rb.velocity.Y -= player.moveSpeed;
             if (keyboard.IsKeyDown(player.down))
-                t.position.Y += player.moveSpeed;
+                rb.velocity.Y += player.moveSpeed;
             if (keyboard.IsKeyDown(player.left))
-                t.position.X -= player.moveSpeed;
+                rb.velocity.X -= player.moveSpeed;
             if (keyboard.IsKeyDown(player.right))
-                t.position.X += player.moveSpeed;
+                rb.velocity.X += player.moveSpeed;
         }
     }
 }

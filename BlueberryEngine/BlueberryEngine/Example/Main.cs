@@ -11,7 +11,6 @@ namespace eboatwright.Example {
         public SpriteBatch spriteBatch;
 
         public Scene scene;
-        public Entity blueberry;
 
         public Main() {
             graphics = new GraphicsDeviceManager(this);
@@ -33,10 +32,11 @@ namespace eboatwright.Example {
 
             scene = new Scene("scene");
 
-            blueberry = scene.CreateEntity("blueberry", new List<IComponent>() {
+            scene.CreateEntity("blueberry", new List<IComponent>() {
                 new Transform(Vector2.Zero, Vector2.One, 0f),
                 new SpriteRenderer(Content.Load<Texture2D>("img/blueberry"), Color.White),
-                new Player(2f, 0.85f, Keys.W, Keys.S, Keys.A, Keys.D),
+                new RigidBody(0f, Vector2.One * 0.78f),
+                new Player(0.9f, Keys.W, Keys.S, Keys.A, Keys.D),
                 new FaceMouse(),
             });
 

@@ -6,14 +6,13 @@ namespace eboatwright.Example {
 
         public string id { get; set; }
 
-        public float moveSpeed, friction;
+        public float moveSpeed;
         public Keys up, down, left, right;
 
-        public Player(float moveSpeed, float friction, Keys up, Keys down, Keys left, Keys right) {
+        public Player(float moveSpeed, Keys up, Keys down, Keys left, Keys right) {
             id = "player";
 
             this.moveSpeed = moveSpeed;
-            this.friction = friction;
 
             this.up = up;
             this.down = down;
