@@ -1,0 +1,31 @@
+﻿<Properties StartupConfiguration="{8A961248-AB1F-427D-BFB0-4ACBB485D65A}|Default">
+  <MonoDevelop.Ide.ItemProperties.BlueberryEngine FirstBuild="True" PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="BlueberryEngine/BlueberryEngine/System.cs">
+    <Files>
+      <File FileName="BlueberryEngine/Main.cs" Line="9" Column="41" />
+      <File FileName="BlueberryEngine/BlueberryEngine/Entity.cs" Line="1" Column="1" />
+      <File FileName="BlueberryEngine/BlueberryEngine/Component.cs" Line="1" Column="1" />
+      <File FileName="BlueberryEngine/BlueberryEngine/System.cs" Line="9" Column="1" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="BlueberryEngine" expanded="True">
+            <Node name="BlueberryEngine" expanded="True">
+              <Node name="BlueberryEngine" expanded="True">
+                <Node name="System.cs" selected="True" />
+              </Node>
+              <Node name="Content" expanded="True" />
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>
