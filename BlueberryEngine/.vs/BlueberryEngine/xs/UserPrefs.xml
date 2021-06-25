@@ -2,7 +2,7 @@
   <MonoDevelop.Ide.ItemProperties.BlueberryEngine PreferredExecutionTarget="MonoDevelop.Default" />
   <MonoDevelop.Ide.Workbench ActiveDocument="BlueberryEngine/Example/Main.cs">
     <Files>
-      <File FileName="BlueberryEngine/Example/Main.cs" Line="43" Column="1" />
+      <File FileName="BlueberryEngine/Example/Main.cs" Line="57" Column="125" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -10,15 +10,11 @@
           <Node name="BlueberryEngine" expanded="True">
             <Node name="BlueberryEngine" expanded="True">
               <Node name="BlueberryEngine" expanded="True">
-                <Node name="ECS" expanded="True">
-                  <Node name="Systems" expanded="True" />
-                </Node>
+                <Node name="ECS" expanded="True" />
               </Node>
-              <Node name="Content" expanded="True" />
               <Node name="Example" expanded="True">
                 <Node name="Components" expanded="True" />
                 <Node name="Systems" expanded="True" />
-                <Node name="Main.cs" selected="True" />
               </Node>
             </Node>
           </Node>

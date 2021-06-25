@@ -28,14 +28,14 @@ namespace BlueberryEngine.ECS {
             return entity;
         }
 
-        public IUpdateSystem AddUpdateSystem(IUpdateSystem system) {
+        public Scene AddUpdateSystem(IUpdateSystem system) {
             updateSystems.Add(system);
-            return system;
+            return this;
         }
 
-        public IDrawSystem AddDrawSystem(IDrawSystem system) {
+        public Scene AddDrawSystem(IDrawSystem system) {
             drawSystems.Add(system);
-            return system;
+            return this;
         }
 
         public void Update(float deltaTime, MouseState mouse, KeyboardState keyboard) {

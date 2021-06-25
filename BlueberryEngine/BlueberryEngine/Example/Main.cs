@@ -37,10 +37,14 @@ namespace eboatwright.Example {
                 new Transform(Vector2.Zero, Vector2.One, 0f),
                 new SpriteRenderer(Content.Load<Texture2D>("img/blueberry"), Color.White),
                 new Player(2f, 0.85f, Keys.W, Keys.S, Keys.A, Keys.D),
+                new FaceMouse(),
             });
 
-            scene.AddUpdateSystem(new PlayerSystem());
-            scene.AddDrawSystem(new SpriteRendererSystem());
+            scene
+                .AddUpdateSystem(new PlayerSystem())
+                .AddUpdateSystem(new PhysicsSystem())
+                .AddUpdateSystem(new FaceMouseSystem())
+                .AddDrawSystem(new SpriteRendererSystem());
         }
 
         protected override void Update(GameTime gameTime) {
