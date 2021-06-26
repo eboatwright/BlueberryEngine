@@ -38,6 +38,12 @@ namespace eboatwright.Example {
 
             scene = new Scene("scene");
 
+            crate = scene.CreateEntity("crate", new List<IComponent>() {
+                new Transform(new Vector2(50, 50), Vector2.One, 0f),
+                new SpriteRenderer(Content.Load<Texture2D>("img/crate"), Color.White),
+                new BoxCollider(new Vector2(24, 24)),
+            });
+
             blueberry = scene.CreateEntity("blueberry", new List<IComponent>() {
                 new Transform(Vector2.Zero, Vector2.One, 0f),
                 new SpriteRenderer(Content.Load<Texture2D>("img/blueberry"), Color.White),
@@ -47,22 +53,15 @@ namespace eboatwright.Example {
                 new FaceMouse(),
             });
 
-            crate = scene.CreateEntity("crate", new List<IComponent>() {
-                new Transform(new Vector2(50, 50), Vector2.One, 0f),
-                new SpriteRenderer(Content.Load<Texture2D>("img/crate"), Color.White),
-                new BoxCollider(new Vector2(24, 24)),
-            });
-
             scene
                 .AddUpdateSystem(new PlayerSystem())
-                .AddUpdateSystem(new PhysicsSystem())
+                .AddUpdateSystem(new EntityCollisionSystem())
                 .AddUpdateSystem(new FaceMouseSystem())
                 .AddDrawSystem(new SpriteRendererSystem());
         }
 
         protected override void Update(GameTime gameTime) {
             scene.Update((float)gameTime.ElapsedGameTime.TotalSeconds / 60f, Mouse.GetState(), Keyboard.GetState());
-            Console.WriteLine(Collision.BoxCollidersOverlap(blueberry, crate));
         }
 
         protected override void Draw(GameTime gameTime) {

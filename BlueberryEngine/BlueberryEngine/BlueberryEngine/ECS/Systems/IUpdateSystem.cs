@@ -7,6 +7,6 @@ namespace BlueberryEngine.ECS {
     /// </summary>
     public interface IUpdateSystem : ISystem {
 
-        public void Update(Entity entity, float deltaTime, MouseState mouse, KeyboardState keyboard);
+        public void Update(Entity entity, Scene scene, float deltaTime, MouseState mouse, KeyboardState keyboard);
     }
 }

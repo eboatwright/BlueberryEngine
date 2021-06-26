@@ -12,7 +12,7 @@ namespace BlueberryEngine.ECS.BuiltInSystems {
             requirements.Add("player");
         }
 
-        public void Update(Entity entity, float deltaTime, MouseState mouse, KeyboardState keyboard) {
+        public void Update(Entity entity, Scene scene, float deltaTime, MouseState mouse, KeyboardState keyboard) {
             RigidBody rb = (RigidBody)entity.GetComponent("rigidBody");
             Player player = (Player)entity.GetComponent("player");
 

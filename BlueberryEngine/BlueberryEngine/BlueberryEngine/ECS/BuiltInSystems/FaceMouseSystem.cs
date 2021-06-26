@@ -14,7 +14,7 @@ namespace BlueberryEngine.ECS.BuiltInSystems {
             requirements.Add("faceMouse");
         }
 
-        public void Update(Entity entity, float deltaTime, MouseState mouse, KeyboardState keyboard) {
+        public void Update(Entity entity, Scene scene, float deltaTime, MouseState mouse, KeyboardState keyboard) {
             Transform t = (Transform)entity.GetComponent("transform");
             Vector2 mousePosition = mouse.Position.ToVector2() / 3f;
             Vector2 distance = mousePosition - t.position;

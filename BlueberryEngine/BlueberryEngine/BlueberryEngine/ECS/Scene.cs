@@ -28,6 +28,14 @@ namespace BlueberryEngine.ECS {
             return entity;
         }
 
+        public List<Entity> FindEntitiesOfType(string id) {
+            List<Entity> found = new List<Entity>();
+            foreach (Entity entity in entities)
+                if (entity.HasComponent(id))
+                    found.Add(entity);
+            return found;
+        }
+
         public Scene AddUpdateSystem(IUpdateSystem system) {
             updateSystems.Add(system);
             return this;
@@ -46,7 +54,7 @@ namespace BlueberryEngine.ECS {
                     if (entity.destroyed)
                         entities.Remove(entity);
                     else if (system.Matches(entity))
-                        system.Update(entity, deltaTime, mouse, keyboard);
+                        system.Update(entity, this, deltaTime, mouse, keyboard);
                 }
         }
 
