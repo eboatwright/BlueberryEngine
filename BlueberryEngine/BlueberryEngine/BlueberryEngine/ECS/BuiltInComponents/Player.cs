@@ -1,7 +1,6 @@
-﻿using BlueberryEngine.ECS;
-using Microsoft.Xna.Framework.Input;
+﻿using Microsoft.Xna.Framework.Input;
 
-namespace eboatwright.Example {
+namespace BlueberryEngine.ECS.BuiltInComponents {
     public class Player : IComponent {
 
         public string id { get; set; }

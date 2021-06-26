@@ -1,6 +1,4 @@
-﻿using BlueberryEngine.ECS;
-
-namespace eboatwright.Example {
+﻿namespace BlueberryEngine.ECS.BuiltInComponents {
     public class FaceMouse : IComponent {
 
         public string id { get; set; }

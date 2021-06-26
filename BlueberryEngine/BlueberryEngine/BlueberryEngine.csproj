@@ -16,8 +16,8 @@
     <None Remove="BlueberryEngine\ECS\" />
     <None Remove="BlueberryEngine\ECS\BaseSystems\" />
     <None Remove="Example\" />
-    <None Remove="Example\Components\" />
-    <None Remove="Example\Systems\" />
+    <None Remove="BlueberryEngine\ECS\BuiltInComponents\" />
+    <None Remove="BlueberryEngine\ECS\BuiltInSystems\" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Icon.ico" />
@@ -38,7 +38,7 @@
     <Folder Include="BlueberryEngine\ECS\" />
     <Folder Include="BlueberryEngine\ECS\Systems\" />
     <Folder Include="Example\" />
-    <Folder Include="Example\Components\" />
-    <Folder Include="Example\Systems\" />
+    <Folder Include="BlueberryEngine\ECS\BuiltInComponents\" />
+    <Folder Include="BlueberryEngine\ECS\BuiltInSystems\" />
   </ItemGroup>
 </Project>

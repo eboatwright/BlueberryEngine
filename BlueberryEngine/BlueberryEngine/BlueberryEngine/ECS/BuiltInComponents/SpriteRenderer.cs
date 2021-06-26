@@ -1,8 +1,7 @@
-﻿using BlueberryEngine.ECS;
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
-namespace eboatwright.Example {
+namespace BlueberryEngine.ECS.BuiltInComponents {
     public class SpriteRenderer : IComponent {
 
         public string id { get; set; }

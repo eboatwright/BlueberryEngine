@@ -1,7 +1,6 @@
-﻿using BlueberryEngine.ECS;
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 
-namespace eboatwright.Example {
+namespace BlueberryEngine.ECS.BuiltInComponents {
     class Transform : IComponent {
 
         public string id { get; set; }

@@ -1,20 +1,24 @@
 ﻿<Properties StartupConfiguration="{8A961248-AB1F-427D-BFB0-4ACBB485D65A}|Default">
   <MonoDevelop.Ide.ItemProperties.BlueberryEngine PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="BlueberryEngine/Example/Main.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="BlueberryEngine/BlueberryEngine/Collision.cs">
     <Files>
-      <File FileName="BlueberryEngine/Example/Main.cs" Line="31" Column="59" />
+      <File FileName="BlueberryEngine/Example/Main.cs" Line="42" Column="32" />
+      <File FileName="BlueberryEngine/BlueberryEngine/Collision.cs" Line="18" Column="71" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="BlueberryEngine" expanded="True">
             <Node name="BlueberryEngine" expanded="True">
-              <Node name="BlueberryEngine" expanded="True" />
-              <Node name="Example" expanded="True">
-                <Node name="Components" expanded="True" />
-                <Node name="Systems" expanded="True" />
-                <Node name="Main.cs" selected="True" />
+              <Node name="BlueberryEngine" expanded="True">
+                <Node name="ECS" expanded="True">
+                  <Node name="BuiltInComponents" expanded="True" />
+                  <Node name="BuiltInSystems" expanded="True" />
+                </Node>
+                <Node name="Collision.cs" selected="True" />
               </Node>
+              <Node name="Content" expanded="True" />
+              <Node name="Example" expanded="True" />
             </Node>
           </Node>
         </State>

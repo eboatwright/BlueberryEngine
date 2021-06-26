@@ -5,8 +5,10 @@
   <Config />
   <SourceFiles>
     <File>/Users/evanboatwright/Desktop/ALL GAME FILES/Monogame/BlueberryEngine/BlueberryEngine/BlueberryEngine/Content/../../../Assets/blueberry.png</File>
+    <File>/Users/evanboatwright/Desktop/ALL GAME FILES/Monogame/BlueberryEngine/BlueberryEngine/BlueberryEngine/Content/../../../Assets/crate.png</File>
   </SourceFiles>
   <DestFiles>
     <File>img/blueberry.png</File>
+    <File>img/crate.png</File>
   </DestFiles>
 </SourceFileCollection>

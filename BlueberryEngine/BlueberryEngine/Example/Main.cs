@@ -1,8 +1,12 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using BlueberryEngine.ECS;
 using System.Collections.Generic;
 using Microsoft.Xna.Framework.Input;
+using BlueberryEngine.ECS;
+using BlueberryEngine.ECS.BuiltInComponents;
+using BlueberryEngine.ECS.BuiltInSystems;
+using BlueberryEngine.Collision;
+using System;
 
 namespace eboatwright.Example {
     public class Main : Game {
@@ -11,6 +15,8 @@ namespace eboatwright.Example {
         public SpriteBatch spriteBatch;
 
         public Scene scene;
+        private Entity blueberry;
+        private Entity crate;
 
         public Main() {
             graphics = new GraphicsDeviceManager(this);
@@ -32,12 +38,19 @@ namespace eboatwright.Example {
 
             scene = new Scene("scene");
 
-            scene.CreateEntity("blueberry", new List<IComponent>() {
+            blueberry = scene.CreateEntity("blueberry", new List<IComponent>() {
                 new Transform(Vector2.Zero, Vector2.One, 0f),
                 new SpriteRenderer(Content.Load<Texture2D>("img/blueberry"), Color.White),
                 new RigidBody(0f, Vector2.One * 0.78f),
+                new BoxCollider(new Vector2(19, 18)),
                 new Player(0.9f, Keys.W, Keys.S, Keys.A, Keys.D),
                 new FaceMouse(),
+            });
+
+            crate = scene.CreateEntity("crate", new List<IComponent>() {
+                new Transform(new Vector2(50, 50), Vector2.One, 0f),
+                new SpriteRenderer(Content.Load<Texture2D>("img/crate"), Color.White),
+                new BoxCollider(new Vector2(24, 24)),
             });
 
             scene
@@ -49,12 +62,13 @@ namespace eboatwright.Example {
 
         protected override void Update(GameTime gameTime) {
             scene.Update((float)gameTime.ElapsedGameTime.TotalSeconds / 60f, Mouse.GetState(), Keyboard.GetState());
+            Console.WriteLine(Collision.BoxCollidersOverlap(blueberry, crate));
         }
 
         protected override void Draw(GameTime gameTime) {
             GraphicsDevice.Clear(Color.White);
 
-            spriteBatch.Begin(SpriteSortMode.Deferred, null, SamplerState.PointClamp, null, null, null, Matrix.CreateScale(3f));
+            spriteBatch.Begin(SpriteSortMode.Texture, null, SamplerState.PointClamp, null, null, null, Matrix.CreateScale(3f));
 
             scene.Draw(spriteBatch);
 
