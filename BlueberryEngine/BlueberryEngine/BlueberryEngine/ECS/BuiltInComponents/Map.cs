@@ -1,7 +1,7 @@
 ﻿using Microsoft.Xna.Framework.Graphics;
 
 namespace BlueberryEngine.ECS.BuiltInComponents {
-    class Map : IComponent {
+    public class Map : IComponent {
 
         public string id { get; set; }
 

@@ -19,6 +19,11 @@ namespace BlueberryEngine.ECS {
             destroyed = true;
         }
 
+        public void AddTags(List<string> tags) {
+            foreach (string tag in tags)
+                this.tags.Add(tag);
+        }
+
         public void AddComponent(IComponent component) {
             components.Add(component);
         }

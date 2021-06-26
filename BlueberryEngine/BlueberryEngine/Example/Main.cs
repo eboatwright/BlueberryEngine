@@ -2,6 +2,7 @@
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using System.Collections.Generic;
+using BlueberryEngine;
 using BlueberryEngine.ECS;
 using BlueberryEngine.ECS.BuiltInComponents;
 using BlueberryEngine.ECS.BuiltInSystems;
@@ -21,10 +22,10 @@ namespace eboatwright.Example {
         }
 
         protected override void Initialize() {
-            graphics.PreferredBackBufferWidth = 960;
-            graphics.PreferredBackBufferHeight = 600;
+            graphics.PreferredBackBufferWidth = Globals.SCREEN_WIDTH;
+            graphics.PreferredBackBufferHeight = Globals.SCREEN_HEIGHT;
             graphics.ApplyChanges();
-            Window.Title = "Blueberry Engine";
+            Window.Title = Globals.SCREEN_TITLE;
 
             base.Initialize();
         }
@@ -46,39 +47,44 @@ namespace eboatwright.Example {
                     {2, 1, 1, 2, 2, 2, 1, 2, 1, 1, 2, 2, 1, 1},
                     {2, 1, 2, 2, 1, 1, 2, 1, 1, 1, 2, 2, 1, 2},
                 }, Content.Load<Texture2D>("img/tileset"), 24)
-            });
+            }).AddTags(new List<string>() { "followCamera" });
 
             scene.CreateEntity("crate", new List<IComponent>() {
                 new Transform(new Vector2(50, 50), Vector2.One, 0f),
                 new SpriteRenderer(Content.Load<Texture2D>("img/crate"), Color.White),
                 new BoxCollider(new Vector2(24, 24)),
-            });
+            }).AddTags(new List<string>() { "followCamera" });
 
-            scene.CreateEntity("blueberry", new List<IComponent>() {
+            Entity blueberry = scene.CreateEntity("blueberry", new List<IComponent>() {
                 new Transform(Vector2.Zero, Vector2.One, 0f),
                 new SpriteRenderer(Content.Load<Texture2D>("img/blueberry"), Color.White),
                 new RigidBody(0f, Vector2.One * 0.78f),
                 new BoxCollider(new Vector2(19, 18)),
                 new Player(0.9f, Keys.W, Keys.S, Keys.A, Keys.D),
-                new FaceMouse(),
+            });
+            blueberry.AddTags(new List<string>() { "followCamera", "faceMouse" });
+
+            scene.CreateEntity("camera", new List<IComponent>() {
+                new Camera(Vector2.Zero, (Transform)blueberry.GetComponent("transform"), 0.1f),
             });
 
             scene
-                .AddUpdateSystem(new PlayerSystem())
+                .AddUpdateSystem(new TopDownPlayerSystem())
                 .AddUpdateSystem(new EntityCollisionSystem())
                 .AddUpdateSystem(new FaceMouseSystem())
+                .AddUpdateSystem(new CameraSystem())
                 .AddDrawSystem(new SpriteRendererSystem())
                 .AddDrawSystem(new MapRendererSystem());
         }
 
         protected override void Update(GameTime gameTime) {
-            scene.Update((float)gameTime.ElapsedGameTime.TotalSeconds / 60f, Mouse.GetState(), Keyboard.GetState());
+            scene.Update((float)gameTime.ElapsedGameTime.TotalSeconds * 60f, Mouse.GetState(), Keyboard.GetState());
         }
 
         protected override void Draw(GameTime gameTime) {
             GraphicsDevice.Clear(Color.White);
 
-            spriteBatch.Begin(SpriteSortMode.Texture, null, SamplerState.PointClamp, null, null, null, Matrix.CreateScale(3f));
+            spriteBatch.Begin(SpriteSortMode.Texture, null, SamplerState.PointClamp, null, null, null, Matrix.CreateScale(Globals.SCREEN_SCALE));
 
             scene.Draw(spriteBatch);
 

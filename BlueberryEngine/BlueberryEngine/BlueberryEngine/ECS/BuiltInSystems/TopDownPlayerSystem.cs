@@ -4,11 +4,11 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Input;
 
 namespace BlueberryEngine.ECS.BuiltInSystems {
-    public class PlayerSystem : IUpdateSystem {
+    public class TopDownPlayerSystem : IUpdateSystem {
 
         public List<string> requirements { get; set; } = new List<string>();
 
-        public PlayerSystem() {
+        public TopDownPlayerSystem() {
             requirements.Add("transform");
             requirements.Add("player");
         }
@@ -29,7 +29,7 @@ namespace BlueberryEngine.ECS.BuiltInSystems {
                 input.X = 1;
 
             input = BMath.Normalize(input);
-            rb.velocity += input * player.moveSpeed;
+            rb.velocity += input * player.moveSpeed * deltaTime;
         }
     }
 }

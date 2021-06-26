@@ -28,10 +28,32 @@ namespace BlueberryEngine.ECS {
             return entity;
         }
 
+        public Entity FindEntityOfType(string id) {
+            foreach (Entity entity in entities)
+                if (entity.HasComponent(id))
+                    return entity;
+            return null;
+        }
+
         public List<Entity> FindEntitiesOfType(string id) {
             List<Entity> found = new List<Entity>();
             foreach (Entity entity in entities)
                 if (entity.HasComponent(id))
+                    found.Add(entity);
+            return found;
+        }
+
+        public Entity FindEntityWithTag(string tag) {
+            foreach (Entity entity in entities)
+                if (entity.tags.Contains(tag))
+                    return entity;
+            return null;
+        }
+
+        public List<Entity> FindEntitiesWithTag(string tag) {
+            List<Entity> found = new List<Entity>();
+            foreach (Entity entity in entities)
+                if (entity.tags.Contains(tag))
                     found.Add(entity);
             return found;
         }
@@ -62,7 +84,7 @@ namespace BlueberryEngine.ECS {
             foreach (IDrawSystem system in drawSystems)
                 foreach (Entity entity in entities)
                     if (system.Matches(entity))
-                        system.Draw(entity, spriteBatch);
+                        system.Draw(entity, this, spriteBatch);
         }
     }
 }

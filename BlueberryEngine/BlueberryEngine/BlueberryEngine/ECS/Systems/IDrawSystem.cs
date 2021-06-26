@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using Microsoft.Xna.Framework.Graphics;
+﻿using Microsoft.Xna.Framework.Graphics;
 
 namespace BlueberryEngine.ECS {
 
@@ -8,6 +7,6 @@ namespace BlueberryEngine.ECS {
     /// </summary>
     public interface IDrawSystem : ISystem {
 
-        public void Draw(Entity entity, SpriteBatch spriteBatch);
+        public void Draw(Entity entity, Scene scene, SpriteBatch spriteBatch);
     }
 }

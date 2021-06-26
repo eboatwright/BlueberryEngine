@@ -11,12 +11,15 @@ namespace BlueberryEngine.ECS.BuiltInSystems {
 
         public FaceMouseSystem() {
             requirements.Add("transform");
-            requirements.Add("faceMouse");
         }
 
         public void Update(Entity entity, Scene scene, float deltaTime, MouseState mouse, KeyboardState keyboard) {
-            Transform t = (Transform)entity.GetComponent("transform");
+            if (!entity.tags.Contains("faceMouse")) return;
             Vector2 mousePosition = mouse.Position.ToVector2() / 3f;
+            Camera cam = (Camera)scene.FindEntityOfType("camera").GetComponent("camera");
+            if (cam != null)
+                mousePosition += cam.scroll;
+            Transform t = (Transform)entity.GetComponent("transform");
             Vector2 distance = mousePosition - t.position;
             t.rotation = (float)Math.Atan2(distance.Y, distance.X);
         }
