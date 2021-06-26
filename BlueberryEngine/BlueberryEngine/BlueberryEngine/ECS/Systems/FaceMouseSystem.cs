@@ -1,10 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using BlueberryEngine.ECS.BuiltInComponents;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Input;
 
-namespace BlueberryEngine.ECS.BuiltInSystems {
+namespace BlueberryEngine.ECS {
     public class FaceMouseSystem : IUpdateSystem {
 
         public List<string> requirements { get; set; } = new List<string>();

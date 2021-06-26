@@ -1,5 +1,5 @@
-﻿using BlueberryEngine.ECS.BuiltInComponents;
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
+using BlueberryEngine.ECS;
 
 namespace BlueberryEngine {
     public static class Collision {
@@ -15,14 +15,6 @@ namespace BlueberryEngine {
                 aPosition.X + aSize.X / 2 > bPosition.X - bSize.X / 2 &&
                 aPosition.Y - aSize.Y / 2 < bPosition.Y + bSize.Y / 2 &&
                 aPosition.Y + aSize.Y / 2 > bPosition.Y - bSize.Y / 2;
-        }
-
-        public static bool RectsOverlap(OOP.BoxCollider a, OOP.BoxCollider b) {
-            return
-                a.position.X - a.size.X / 2 < b.position.X + b.size.X / 2 &&
-                a.position.X + a.size.X / 2 > b.position.X - b.size.X / 2 &&
-                a.position.Y - a.size.Y / 2 < b.position.Y + b.size.Y / 2 &&
-                a.position.Y + a.size.Y / 2 > b.position.Y - b.size.Y / 2;
         }
     }
 }

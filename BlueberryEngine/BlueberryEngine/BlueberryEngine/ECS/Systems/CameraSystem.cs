@@ -1,9 +1,8 @@
 ﻿using System.Collections.Generic;
 using Microsoft.Xna.Framework.Input;
-using BlueberryEngine.ECS.BuiltInComponents;
 using Microsoft.Xna.Framework;
 
-namespace BlueberryEngine.ECS.BuiltInSystems {
+namespace BlueberryEngine.ECS {
     public class CameraSystem : IUpdateSystem {
 
         public List<string> requirements { get; set; } = new List<string>();

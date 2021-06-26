@@ -1,6 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 
-namespace BlueberryEngine.ECS.BuiltInComponents {
+namespace BlueberryEngine.ECS {
     public class RigidBody : IComponent {
 
         public string id { get; set; }

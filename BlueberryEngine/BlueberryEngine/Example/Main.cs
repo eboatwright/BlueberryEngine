@@ -4,8 +4,6 @@ using Microsoft.Xna.Framework.Input;
 using System.Collections.Generic;
 using BlueberryEngine;
 using BlueberryEngine.ECS;
-using BlueberryEngine.ECS.BuiltInComponents;
-using BlueberryEngine.ECS.BuiltInSystems;
 
 namespace eboatwright.Example {
     public class Main : Game {
@@ -46,9 +44,7 @@ namespace eboatwright.Example {
                     {2, 1, 2, 1, 2, 1, 2, 2, 2, 1, 2, 1, 2, 2},
                     {2, 1, 1, 2, 2, 2, 1, 2, 1, 1, 2, 2, 1, 1},
                     {2, 1, 2, 2, 1, 1, 2, 1, 1, 1, 2, 2, 1, 2},
-                },
-                new List<int> { 3 },
-                Content.Load<Texture2D>("img/tileset"), 24)
+                }, new List<int> { 3 }, Content.Load<Texture2D>("img/tileset"), 24)
             }).AddTags(new List<string>() { "followCamera" });
 
             scene.CreateEntity("crate", new List<IComponent>() {
@@ -72,6 +68,7 @@ namespace eboatwright.Example {
 
             scene
                 .AddUpdateSystem(new TopDownPlayerSystem())
+                .AddUpdateSystem(new EntityCollisionSystem())
                 .AddUpdateSystem(new MapCollisionSystem())
                 .AddUpdateSystem(new FaceMouseSystem())
                 .AddUpdateSystem(new CameraSystem())
