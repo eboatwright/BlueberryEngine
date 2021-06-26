@@ -7,11 +7,12 @@
           <Node name="BlueberryEngine" expanded="True">
             <Node name="BlueberryEngine" expanded="True">
               <Node name="BlueberryEngine" expanded="True">
-                <Node name="ECS" expanded="True" />
+                <Node name="ECS" expanded="True">
+                  <Node name="BuiltInSystems" expanded="True" />
+                </Node>
                 <Node name="OOP" expanded="True" />
-                <Node name="Collision.cs" selected="True" />
+                <Node name="BMath.cs" selected="True" />
               </Node>
-              <Node name="Content" expanded="True" />
               <Node name="Example" expanded="True" />
             </Node>
           </Node>

@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using BlueberryEngine.ECS.BuiltInComponents;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Input;
 
 namespace BlueberryEngine.ECS.BuiltInSystems {
@@ -16,14 +17,19 @@ namespace BlueberryEngine.ECS.BuiltInSystems {
             RigidBody rb = (RigidBody)entity.GetComponent("rigidBody");
             Player player = (Player)entity.GetComponent("player");
 
+            Vector2 input = Vector2.Zero;
+
             if (keyboard.IsKeyDown(player.up))
-                rb.velocity.Y -= player.moveSpeed;
+                input.Y = -1;
             if (keyboard.IsKeyDown(player.down))
-                rb.velocity.Y += player.moveSpeed;
+                input.Y = 1;
             if (keyboard.IsKeyDown(player.left))
-                rb.velocity.X -= player.moveSpeed;
+                input.X = -1;
             if (keyboard.IsKeyDown(player.right))
-                rb.velocity.X += player.moveSpeed;
+                input.X = 1;
+
+            input = BMath.Normalize(input);
+            rb.velocity += input * player.moveSpeed;
         }
     }
 }
