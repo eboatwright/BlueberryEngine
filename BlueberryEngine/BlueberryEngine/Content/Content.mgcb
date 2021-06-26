@@ -37,3 +37,15 @@
 /processorParam:TextureFormat=Color
 /build:../../../Assets/crate.png;img/crate.png
 
+#begin ../../../Assets/tileset.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:../../../Assets/tileset.png;img/tileset.png
+

@@ -5,8 +5,6 @@ using Microsoft.Xna.Framework.Input;
 using BlueberryEngine.ECS;
 using BlueberryEngine.ECS.BuiltInComponents;
 using BlueberryEngine.ECS.BuiltInSystems;
-using BlueberryEngine.Collision;
-using System;
 
 namespace eboatwright.Example {
     public class Main : Game {
@@ -15,8 +13,6 @@ namespace eboatwright.Example {
         public SpriteBatch spriteBatch;
 
         public Scene scene;
-        private Entity blueberry;
-        private Entity crate;
 
         public Main() {
             graphics = new GraphicsDeviceManager(this);
@@ -38,13 +34,27 @@ namespace eboatwright.Example {
 
             scene = new Scene("scene");
 
-            crate = scene.CreateEntity("crate", new List<IComponent>() {
+            scene.CreateEntity("map", new List<IComponent>() {
+                new Map(new int[,]{
+                    {1, 2, 1, 1, 2, 2, 1, 1, 1, 1, 2, 2, 2, 1},
+                    {2, 1, 2, 1, 2, 1, 2, 2, 2, 1, 2, 1, 2, 2},
+                    {2, 1, 1, 2, 2, 2, 1, 2, 1, 1, 2, 2, 1, 1},
+                    {2, 1, 2, 2, 1, 1, 2, 1, 1, 1, 2, 2, 1, 2},
+                    {2, 1, 2, 1, 2, 1, 2, 2, 2, 1, 2, 1, 2, 2},
+                    {1, 2, 1, 1, 2, 2, 1, 1, 1, 1, 2, 2, 2, 1},
+                    {2, 1, 2, 1, 2, 1, 2, 2, 2, 1, 2, 1, 2, 2},
+                    {2, 1, 1, 2, 2, 2, 1, 2, 1, 1, 2, 2, 1, 1},
+                    {2, 1, 2, 2, 1, 1, 2, 1, 1, 1, 2, 2, 1, 2},
+                }, Content.Load<Texture2D>("img/tileset"), 24)
+            });
+
+            scene.CreateEntity("crate", new List<IComponent>() {
                 new Transform(new Vector2(50, 50), Vector2.One, 0f),
                 new SpriteRenderer(Content.Load<Texture2D>("img/crate"), Color.White),
                 new BoxCollider(new Vector2(24, 24)),
             });
 
-            blueberry = scene.CreateEntity("blueberry", new List<IComponent>() {
+            scene.CreateEntity("blueberry", new List<IComponent>() {
                 new Transform(Vector2.Zero, Vector2.One, 0f),
                 new SpriteRenderer(Content.Load<Texture2D>("img/blueberry"), Color.White),
                 new RigidBody(0f, Vector2.One * 0.78f),
@@ -57,7 +67,8 @@ namespace eboatwright.Example {
                 .AddUpdateSystem(new PlayerSystem())
                 .AddUpdateSystem(new EntityCollisionSystem())
                 .AddUpdateSystem(new FaceMouseSystem())
-                .AddDrawSystem(new SpriteRendererSystem());
+                .AddDrawSystem(new SpriteRendererSystem())
+                .AddDrawSystem(new MapRendererSystem());
         }
 
         protected override void Update(GameTime gameTime) {

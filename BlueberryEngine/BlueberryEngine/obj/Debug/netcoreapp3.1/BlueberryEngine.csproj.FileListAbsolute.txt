@@ -22,3 +22,4 @@
 /Users/evanboatwright/Desktop/ALL GAME FILES/Monogame/BlueberryEngine/BlueberryEngine/BlueberryEngine/obj/Debug/netcoreapp3.1/BlueberryEngine.genruntimeconfig.cache
 /Users/evanboatwright/Desktop/ALL GAME FILES/Monogame/BlueberryEngine/BlueberryEngine/BlueberryEngine/bin/Debug/netcoreapp3.1/Content/img/blueberry.xnb
 /Users/evanboatwright/Desktop/ALL GAME FILES/Monogame/BlueberryEngine/BlueberryEngine/BlueberryEngine/bin/Debug/netcoreapp3.1/Content/img/crate.xnb
+/Users/evanboatwright/Desktop/ALL GAME FILES/Monogame/BlueberryEngine/BlueberryEngine/BlueberryEngine/bin/Debug/netcoreapp3.1/Content/img/tileset.xnb
