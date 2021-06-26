@@ -24,7 +24,7 @@ namespace BlueberryEngine.ECS.BuiltInSystems {
             foreach(Entity otherEntity in scene.FindEntitiesOfType("boxCollider")) {
                 if (otherEntity == entity || otherEntity.GetComponent("transform") == null) continue;
 
-                if(Collision.Collision.BoxCollidersOverlap(entity, otherEntity)) {
+                if(Collision.BoxCollidersOverlap(entity, otherEntity)) {
                     Transform otherTransform = (Transform)otherEntity.GetComponent("transform");
                     BoxCollider otherCollider = (BoxCollider)otherEntity.GetComponent("boxCollider");
                     if(rb.velocity.X < 0f)
@@ -42,7 +42,7 @@ namespace BlueberryEngine.ECS.BuiltInSystems {
             foreach (Entity otherEntity in scene.FindEntitiesOfType("boxCollider")) {
                 if (otherEntity == entity || otherEntity.GetComponent("transform") == null) continue;
 
-                if (Collision.Collision.BoxCollidersOverlap(entity, otherEntity)) {
+                if (Collision.BoxCollidersOverlap(entity, otherEntity)) {
                     Transform otherTransform = (Transform)otherEntity.GetComponent("transform");
                     BoxCollider otherCollider = (BoxCollider)otherEntity.GetComponent("boxCollider");
                     if (rb.velocity.Y < 0f)

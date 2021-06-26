@@ -1,7 +1,7 @@
 ﻿using BlueberryEngine.ECS.BuiltInComponents;
 using Microsoft.Xna.Framework;
 
-namespace BlueberryEngine.Collision {
+namespace BlueberryEngine {
     public static class Collision {
 
         public static bool BoxCollidersOverlap(ECS.Entity a, ECS.Entity b) {

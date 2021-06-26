@@ -1,17 +1,23 @@
 ﻿<Properties StartupConfiguration="{8A961248-AB1F-427D-BFB0-4ACBB485D65A}|Default">
   <MonoDevelop.Ide.ItemProperties.BlueberryEngine PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workbench ActiveDocument="BlueberryEngine/Example/Main.cs">
+    <Files>
+      <File FileName="BlueberryEngine/Example/Main.cs" Line="41" Column="43" />
+    </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="BlueberryEngine" expanded="True">
             <Node name="BlueberryEngine" expanded="True">
               <Node name="BlueberryEngine" expanded="True">
-                <Node name="OOP" expanded="True">
-                  <Node name="Camera.cs" selected="True" />
+                <Node name="ECS" expanded="True">
+                  <Node name="BuiltInComponents" expanded="True" />
+                  <Node name="BuiltInSystems" expanded="True" />
                 </Node>
               </Node>
-              <Node name="Example" expanded="True" />
+              <Node name="Example" expanded="True">
+                <Node name="Main.cs" selected="True" />
+              </Node>
             </Node>
           </Node>
         </State>

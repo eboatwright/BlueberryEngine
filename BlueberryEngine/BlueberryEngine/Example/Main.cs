@@ -38,15 +38,17 @@ namespace eboatwright.Example {
             scene.CreateEntity("map", new List<IComponent>() {
                 new Map(new int[,]{
                     {1, 2, 1, 1, 2, 2, 1, 1, 1, 1, 2, 2, 2, 1},
+                    {2, 1, 2, 1, 2, 3, 3, 3, 2, 1, 2, 1, 2, 2},
+                    {2, 1, 1, 2, 3, 2, 1, 2, 3, 1, 2, 2, 1, 1},
+                    {2, 1, 2, 2, 3, 1, 2, 1, 3, 1, 2, 2, 1, 2},
+                    {2, 1, 2, 1, 3, 1, 2, 2, 3, 1, 2, 1, 2, 2},
+                    {1, 2, 1, 1, 2, 3, 2, 3, 1, 1, 2, 2, 2, 1},
                     {2, 1, 2, 1, 2, 1, 2, 2, 2, 1, 2, 1, 2, 2},
                     {2, 1, 1, 2, 2, 2, 1, 2, 1, 1, 2, 2, 1, 1},
                     {2, 1, 2, 2, 1, 1, 2, 1, 1, 1, 2, 2, 1, 2},
-                    {2, 1, 2, 1, 2, 1, 2, 2, 2, 1, 2, 1, 2, 2},
-                    {1, 2, 1, 1, 2, 2, 1, 1, 1, 1, 2, 2, 2, 1},
-                    {2, 1, 2, 1, 2, 1, 2, 2, 2, 1, 2, 1, 2, 2},
-                    {2, 1, 1, 2, 2, 2, 1, 2, 1, 1, 2, 2, 1, 1},
-                    {2, 1, 2, 2, 1, 1, 2, 1, 1, 1, 2, 2, 1, 2},
-                }, Content.Load<Texture2D>("img/tileset"), 24)
+                },
+                new List<int> { 3 },
+                Content.Load<Texture2D>("img/tileset"), 24)
             }).AddTags(new List<string>() { "followCamera" });
 
             scene.CreateEntity("crate", new List<IComponent>() {
@@ -70,7 +72,7 @@ namespace eboatwright.Example {
 
             scene
                 .AddUpdateSystem(new TopDownPlayerSystem())
-                .AddUpdateSystem(new EntityCollisionSystem())
+                .AddUpdateSystem(new MapCollisionSystem())
                 .AddUpdateSystem(new FaceMouseSystem())
                 .AddUpdateSystem(new CameraSystem())
                 .AddDrawSystem(new SpriteRendererSystem())

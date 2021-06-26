@@ -58,6 +58,21 @@ namespace BlueberryEngine.ECS {
             return found;
         }
 
+        public IComponent FindComponent(string id) {
+            foreach (Entity entity in entities)
+                if (entity.HasComponent(id))
+                    return entity.GetComponent(id);
+            return null;
+        }
+
+        public List<IComponent> FindComponents(string id) {
+            List<IComponent> found = new List<IComponent>();
+            foreach (Entity entity in entities)
+                if (entity.HasComponent(id))
+                    found.Add(entity.GetComponent(id));
+            return found;
+        }
+
         public Scene AddUpdateSystem(IUpdateSystem system) {
             updateSystems.Add(system);
             return this;
