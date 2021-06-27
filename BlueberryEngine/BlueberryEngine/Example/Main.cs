@@ -3,6 +3,8 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using System.Collections.Generic;
 using BlueberryEngine;
+using BlueberryEngine.UI;
+using System;
 
 namespace eboatwright.Example {
     public class Main : Game {
@@ -61,6 +63,12 @@ namespace eboatwright.Example {
             });
             blueberry.AddTags(new List<string>() { "followCamera", "faceMouse" });
 
+            scene.CreateEntity("testButton", new List<IComponent>() {
+                new Transform(new Vector2(5, 5), Vector2.One, 0f),
+                new BoxCollider(new Vector2(50, 50)),
+                new Clickable(ButtonOnClick),
+            });
+
             scene.CreateEntity("camera", new List<IComponent>() {
                 new Camera(Vector2.Zero, (Transform)blueberry.GetComponent("transform"), 0.1f),
             });
@@ -70,6 +78,7 @@ namespace eboatwright.Example {
                 .AddUpdateSystem(new MapCollisionSystem())
                 .AddUpdateSystem(new FaceMouseSystem())
                 .AddUpdateSystem(new CameraSystem())
+                .AddUpdateSystem(new UISystem())
                 .AddDrawSystem(new SpriteRendererSystem())
                 .AddDrawSystem(new MapRendererSystem());
         }
@@ -86,6 +95,10 @@ namespace eboatwright.Example {
             scene.Draw(spriteBatch);
 
             spriteBatch.End();
+        }
+
+        public void ButtonOnClick() {
+            Console.WriteLine("Button Clicked!");
         }
     }
 }

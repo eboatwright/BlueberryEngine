@@ -19,9 +19,6 @@ namespace BlueberryEngine.UI {
             BoxCollider col = (BoxCollider)entity.GetComponent("boxCollider");
 
             Vector2 mousePosition = mouse.Position.ToVector2() / Globals.SCREEN_SCALE;
-            Camera cam = (Camera)scene.FindComponent("camera");
-            if (cam != null)
-                mousePosition += cam.scroll;
 
             Entity m = new Entity("mouse");
             m.AddComponents(new List<IComponent>() {

@@ -1,9 +1,6 @@
 ﻿<Properties StartupConfiguration="{8A961248-AB1F-427D-BFB0-4ACBB485D65A}|Default">
   <MonoDevelop.Ide.ItemProperties.BlueberryEngine PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="BlueberryEngine/Example/Main.cs">
-    <Files>
-      <File FileName="BlueberryEngine/Example/Main.cs" Line="70" Column="62" />
-    </Files>
+  <MonoDevelop.Ide.Workbench>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
@@ -11,9 +8,6 @@
             <Node name="BlueberryEngine" expanded="True">
               <Node name="BlueberryEngine" expanded="True">
                 <Node name="ECS" expanded="True">
-                  <Node name="Components" expanded="True" />
-                  <Node name="CoreSystems" expanded="True" />
-                  <Node name="Systems" expanded="True" />
                   <Node name="UI" expanded="True" />
                 </Node>
               </Node>
