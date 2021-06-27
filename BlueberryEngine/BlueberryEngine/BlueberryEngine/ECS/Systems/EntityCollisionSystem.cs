@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using Microsoft.Xna.Framework.Input;
 
-namespace BlueberryEngine.ECS {
+namespace BlueberryEngine {
     public class EntityCollisionSystem : IUpdateSystem {
 
         public List<string> requirements { get; set; } = new List<string>();

@@ -1,7 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
-namespace BlueberryEngine.ECS {
+namespace BlueberryEngine {
     public class SpriteRenderer : IComponent {
 
         public string id { get; set; }

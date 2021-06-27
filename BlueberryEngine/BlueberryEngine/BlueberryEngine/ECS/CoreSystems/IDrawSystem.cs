@@ -1,6 +1,6 @@
 ﻿using Microsoft.Xna.Framework.Graphics;
 
-namespace BlueberryEngine.ECS {
+namespace BlueberryEngine {
 
     /// <summary>
     /// Implement this interface for systems that should draw every draw call

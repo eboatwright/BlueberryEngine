@@ -2,7 +2,7 @@
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 
-namespace BlueberryEngine.ECS {
+namespace BlueberryEngine {
     public class Scene {
 
         public string id;

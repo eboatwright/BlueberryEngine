@@ -1,6 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 
-namespace BlueberryEngine.ECS {
+namespace BlueberryEngine {
     class Camera : IComponent {
 
         public string id { get; set; }

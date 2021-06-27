@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace BlueberryEngine.ECS.UI {
+namespace BlueberryEngine.UI {
     public class Clickable : IComponent {
 
         public string id { get; set; }

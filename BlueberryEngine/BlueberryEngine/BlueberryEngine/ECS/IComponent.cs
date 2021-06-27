@@ -1,4 +1,4 @@
-﻿namespace BlueberryEngine.ECS {
+﻿namespace BlueberryEngine {
 
     /// <summary>
     /// Interface used for all components

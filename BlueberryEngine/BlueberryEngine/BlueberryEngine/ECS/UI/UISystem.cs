@@ -1,23 +1,21 @@
 ﻿using System.Collections.Generic;
 using Microsoft.Xna.Framework.Input;
 
-namespace BlueberryEngine {
-    public class NonCollisionPhysicsSystem : IUpdateSystem {
+namespace BlueberryEngine.UI {
+    public class UISystem : IUpdateSystem {
 
         public List<string> requirements { get; set; } = new List<string>();
 
-        public NonCollisionPhysicsSystem() {
+        public UISystem() {
             requirements.Add("transform");
-            requirements.Add("rigidBody");
+            requirements.Add("clickable");
+            requirements.Add("boxCollider");
         }
 
         public void Update(Entity entity, Scene scene, float deltaTime, MouseState mouse, KeyboardState keyboard) {
             Transform t = (Transform)entity.GetComponent("transform");
-            RigidBody rb = (RigidBody)entity.GetComponent("rigidBody");
-
-            rb.velocity.Y += rb.gravity;
-            rb.velocity *= rb.friction;
-            t.position += rb.velocity;
+            Clickable c = (Clickable)entity.GetComponent("clickable");
+            BoxCollider col = (BoxCollider)entity.GetComponent("boxCollider");
         }
     }
 }

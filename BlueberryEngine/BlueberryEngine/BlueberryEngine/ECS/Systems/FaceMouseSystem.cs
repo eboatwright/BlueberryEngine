@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Input;
 
-namespace BlueberryEngine.ECS {
+namespace BlueberryEngine {
     public class FaceMouseSystem : IUpdateSystem {
 
         public List<string> requirements { get; set; } = new List<string>();

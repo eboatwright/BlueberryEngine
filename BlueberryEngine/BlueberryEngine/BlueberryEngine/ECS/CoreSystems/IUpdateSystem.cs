@@ -1,6 +1,6 @@
 ﻿using Microsoft.Xna.Framework.Input;
 
-namespace BlueberryEngine.ECS {
+namespace BlueberryEngine {
 
     /// <summary>
     /// Implement this interface for systems that are updated every frame

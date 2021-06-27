@@ -2,7 +2,7 @@
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
-namespace BlueberryEngine.ECS {
+namespace BlueberryEngine {
     public class SpriteRendererSystem : IDrawSystem {
 
         public List<string> requirements { get; set; } = new List<string>();

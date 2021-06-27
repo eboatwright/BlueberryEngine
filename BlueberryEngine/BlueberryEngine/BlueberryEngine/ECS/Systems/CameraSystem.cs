@@ -2,7 +2,7 @@
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework;
 
-namespace BlueberryEngine.ECS {
+namespace BlueberryEngine {
     public class CameraSystem : IUpdateSystem {
 
         public List<string> requirements { get; set; } = new List<string>();

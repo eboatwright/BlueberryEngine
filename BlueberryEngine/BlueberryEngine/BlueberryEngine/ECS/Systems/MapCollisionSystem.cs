@@ -2,7 +2,7 @@
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Input;
 
-namespace BlueberryEngine.ECS {
+namespace BlueberryEngine {
     public class MapCollisionSystem : IUpdateSystem {
 
         public List<string> requirements { get; set; } = new List<string>();

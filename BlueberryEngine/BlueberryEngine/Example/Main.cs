@@ -3,7 +3,6 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using System.Collections.Generic;
 using BlueberryEngine;
-using BlueberryEngine.ECS;
 
 namespace eboatwright.Example {
     public class Main : Game {

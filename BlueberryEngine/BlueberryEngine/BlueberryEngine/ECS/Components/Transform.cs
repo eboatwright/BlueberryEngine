@@ -1,6 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 
-namespace BlueberryEngine.ECS {
+namespace BlueberryEngine {
     class Transform : IComponent {
 
         public string id { get; set; }

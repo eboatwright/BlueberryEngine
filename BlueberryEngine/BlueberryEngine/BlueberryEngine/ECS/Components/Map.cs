@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using Microsoft.Xna.Framework.Graphics;
 
-namespace BlueberryEngine.ECS {
+namespace BlueberryEngine {
     public class Map : IComponent {
 
         public string id { get; set; }

@@ -17,7 +17,6 @@
     <None Remove="BlueberryEngine\ECS\BaseSystems\" />
     <None Remove="Example\" />
     <None Remove="BlueberryEngine\ECS\BuiltInComponents\" />
-    <None Remove="BlueberryEngine\ECS\BuiltInSystems\" />
     <None Remove="BlueberryEngine\ECS\UI\" />
   </ItemGroup>
   <ItemGroup>
@@ -40,7 +39,6 @@
     <Folder Include="BlueberryEngine\ECS\CoreSystems\" />
     <Folder Include="Example\" />
     <Folder Include="BlueberryEngine\ECS\Components\" />
-    <Folder Include="BlueberryEngine\ECS\BuiltInSystems\" />
     <Folder Include="BlueberryEngine\ECS\UI\" />
   </ItemGroup>
 </Project>
