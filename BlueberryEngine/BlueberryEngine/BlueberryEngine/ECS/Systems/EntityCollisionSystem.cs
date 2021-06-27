@@ -21,15 +21,15 @@ namespace BlueberryEngine {
             t.position.X += rb.velocity.X;
 
             foreach(Entity otherEntity in scene.FindEntitiesOfType("boxCollider")) {
-                if (otherEntity == entity || otherEntity.GetComponent("transform") == null) continue;
+                if (otherEntity == entity || otherEntity.GetComponent("transform") == null || otherEntity.GetComponent("clickable") != null) continue;
 
                 if(Collision.BoxCollidersOverlap(entity, otherEntity)) {
                     Transform otherTransform = (Transform)otherEntity.GetComponent("transform");
                     BoxCollider otherCollider = (BoxCollider)otherEntity.GetComponent("boxCollider");
-                    if(rb.velocity.X < 0f)
-                        t.position.X = otherTransform.position.X + (otherCollider.size.X / 2) + (collider.size.X / 2);
-                    else if(rb.velocity.X > 0f)
-                        t.position.X = otherTransform.position.X - (otherCollider.size.X / 2) - (collider.size.X / 2);
+                    if (rb.velocity.X > 0f)
+                        t.position.X = otherTransform.position.X - (collider.size.X / 2f) - (otherCollider.size.X / 2f);
+                    else if (rb.velocity.X < 0f)
+                        t.position.X = otherTransform.position.X + (collider.size.X / 2f) + (otherCollider.size.X / 2f);
                     rb.velocity.X = 0f;
                 }
             }
@@ -39,15 +39,15 @@ namespace BlueberryEngine {
             t.position.Y += rb.velocity.Y;
 
             foreach (Entity otherEntity in scene.FindEntitiesOfType("boxCollider")) {
-                if (otherEntity == entity || otherEntity.GetComponent("transform") == null) continue;
+                if (otherEntity == entity || otherEntity.GetComponent("transform") == null || otherEntity.GetComponent("clickable") != null) continue;
 
-                if (Collision.BoxCollidersOverlap(entity, otherEntity)) {
+                if(Collision.BoxCollidersOverlap(entity, otherEntity)) {
                     Transform otherTransform = (Transform)otherEntity.GetComponent("transform");
                     BoxCollider otherCollider = (BoxCollider)otherEntity.GetComponent("boxCollider");
-                    if (rb.velocity.Y < 0f)
-                        t.position.Y = otherTransform.position.Y + (otherCollider.size.Y / 2) + (collider.size.Y / 2);
-                    else if (rb.velocity.Y > 0f)
-                        t.position.Y = otherTransform.position.Y - (otherCollider.size.Y / 2) - (collider.size.Y / 2);
+                    if (rb.velocity.Y > 0f)
+                        t.position.Y = otherTransform.position.Y - (collider.size.Y / 2f) - (otherCollider.size.Y / 2f);
+                    else if(rb.velocity.Y < 0f)
+                        t.position.Y = otherTransform.position.Y + (collider.size.Y / 2f) + (otherCollider.size.Y / 2f);
                     rb.velocity.Y = 0f;
                 }
             }

@@ -1,15 +1,15 @@
-﻿using System;
-
-namespace BlueberryEngine.UI {
+﻿namespace BlueberryEngine.UI {
     public class Clickable : IComponent {
 
         public string id { get; set; }
 
-        public Delegate onClick;
+        public delegate void OnClick();
+        public OnClick onClick;
+        public bool mouseUp;
 
-        public Clickable(Delegate onClick) {
+        public Clickable(OnClick onClick) {
             id = "clickable";
-            this.onClick = onClick;
+            this.onClick = new OnClick(onClick);
         }
     }
 }

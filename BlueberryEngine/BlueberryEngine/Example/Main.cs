@@ -67,7 +67,6 @@ namespace eboatwright.Example {
 
             scene
                 .AddUpdateSystem(new TopDownPlayerSystem())
-                .AddUpdateSystem(new EntityCollisionSystem())
                 .AddUpdateSystem(new MapCollisionSystem())
                 .AddUpdateSystem(new FaceMouseSystem())
                 .AddUpdateSystem(new CameraSystem())
