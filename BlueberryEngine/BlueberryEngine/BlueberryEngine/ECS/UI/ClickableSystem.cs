@@ -3,11 +3,11 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Input;
 
 namespace BlueberryEngine.UI {
-    public class UISystem : IUpdateSystem {
+    public class ClickableSystem : IUpdateSystem {
 
         public List<string> requirements { get; set; } = new List<string>();
 
-        public UISystem() {
+        public ClickableSystem() {
             requirements.Add("transform");
             requirements.Add("clickable");
             requirements.Add("boxCollider");
@@ -23,14 +23,13 @@ namespace BlueberryEngine.UI {
             Entity m = new Entity("mouse");
             m.AddComponents(new List<IComponent>() {
                 new Transform(mousePosition, Vector2.One, 0f),
-                new BoxCollider(new Vector2(10, 10)),
+                new BoxCollider(new Vector2(1, 1)),
             });
 
             if (mouse.LeftButton == ButtonState.Pressed) {
-                if (Collision.BoxCollidersOverlap(m, entity) && c.mouseUp) {
-                    c.mouseUp = false;
+                if (Collision.BoxCollidersOverlap(m, entity) && c.mouseUp)
                     c.onClick();
-                }
+                c.mouseUp = false;
             } else {
                 c.mouseUp = true;
             }

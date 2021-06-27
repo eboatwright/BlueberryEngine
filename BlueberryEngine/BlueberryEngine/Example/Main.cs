@@ -11,6 +11,7 @@ namespace eboatwright.Example {
 
         private GraphicsDeviceManager graphics;
         public SpriteBatch spriteBatch;
+        public SpriteFont font;
 
         public Scene scene;
 
@@ -31,6 +32,7 @@ namespace eboatwright.Example {
 
         protected override void LoadContent() {
             spriteBatch = new SpriteBatch(GraphicsDevice);
+            font = Content.Load<SpriteFont>("fnt/smallFont");
 
             scene = new Scene("scene");
 
@@ -64,9 +66,10 @@ namespace eboatwright.Example {
             blueberry.AddTags(new List<string>() { "followCamera", "faceMouse" });
 
             scene.CreateEntity("testButton", new List<IComponent>() {
-                new Transform(new Vector2(5, 5), Vector2.One, 0f),
-                new BoxCollider(new Vector2(50, 50)),
+                new Transform(new Vector2(24, 24), new Vector2(2, 2), 0f),
+                new BoxCollider(new Vector2(2 * 24, 2 * 24)),
                 new Clickable(ButtonOnClick),
+                new PanelRenderer(Content.Load<Texture2D>("img/uiPanel"), Color.White),
             });
 
             scene.CreateEntity("camera", new List<IComponent>() {
@@ -78,9 +81,10 @@ namespace eboatwright.Example {
                 .AddUpdateSystem(new MapCollisionSystem())
                 .AddUpdateSystem(new FaceMouseSystem())
                 .AddUpdateSystem(new CameraSystem())
-                .AddUpdateSystem(new UISystem())
+                .AddUpdateSystem(new ClickableSystem())
+                .AddDrawSystem(new MapRendererSystem())
                 .AddDrawSystem(new SpriteRendererSystem())
-                .AddDrawSystem(new MapRendererSystem());
+                .AddDrawSystem(new PanelRendererSystem());
         }
 
         protected override void Update(GameTime gameTime) {

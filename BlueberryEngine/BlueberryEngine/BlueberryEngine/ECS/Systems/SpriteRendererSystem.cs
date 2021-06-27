@@ -18,11 +18,11 @@ namespace BlueberryEngine {
 
             Vector2 position = t.position;
             if(entity.tags.Contains("followCamera")) {
-                Camera cam = (Camera)scene.FindEntityOfType("camera").GetComponent("camera");
+                Camera cam = (Camera)scene.FindComponent("camera");
                 position -= cam.scroll;
             }
 
-            spriteBatch.Draw(sr.texture, position, new Rectangle(0, 0, sr.texture.Width, sr.texture.Height), sr.color, t.rotation, new Vector2(sr.texture.Width / 2f, sr.texture.Height / 2f), t.scale, SpriteEffects.None, 0);
+            spriteBatch.Draw(sr.texture, position, new Rectangle(0, 0, sr.texture.Width, sr.texture.Height), sr.color, t.rotation, new Vector2(sr.texture.Width / 2f, sr.texture.Height / 2f), t.scale, SpriteEffects.None, 0f);
         }
     }
 }

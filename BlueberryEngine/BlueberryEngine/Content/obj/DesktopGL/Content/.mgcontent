@@ -7,10 +7,14 @@
     <File>/Users/evanboatwright/Desktop/ALL GAME FILES/Monogame/BlueberryEngine/BlueberryEngine/BlueberryEngine/Content/../../../Assets/blueberry.png</File>
     <File>/Users/evanboatwright/Desktop/ALL GAME FILES/Monogame/BlueberryEngine/BlueberryEngine/BlueberryEngine/Content/../../../Assets/crate.png</File>
     <File>/Users/evanboatwright/Desktop/ALL GAME FILES/Monogame/BlueberryEngine/BlueberryEngine/BlueberryEngine/Content/../../../Assets/tileset.png</File>
+    <File>/Users/evanboatwright/Desktop/ALL GAME FILES/Monogame/BlueberryEngine/BlueberryEngine/BlueberryEngine/Content/../../../Assets/uiPanel.png</File>
+    <File>/Users/evanboatwright/Desktop/ALL GAME FILES/Monogame/BlueberryEngine/BlueberryEngine/BlueberryEngine/Content/fnt/smallFont.spritefont</File>
   </SourceFiles>
   <DestFiles>
     <File>img/blueberry.png</File>
     <File>img/crate.png</File>
     <File>img/tileset.png</File>
+    <File>img/uiPanel.png</File>
+    <File xsi:nil="true" />
   </DestFiles>
 </SourceFileCollection>

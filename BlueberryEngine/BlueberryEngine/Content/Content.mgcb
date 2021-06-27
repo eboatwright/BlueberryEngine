@@ -49,3 +49,22 @@
 /processorParam:TextureFormat=Color
 /build:../../../Assets/tileset.png;img/tileset.png
 
+#begin ../../../Assets/uiPanel.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:../../../Assets/uiPanel.png;img/uiPanel.png
+
+#begin fnt/smallFont.spritefont
+/importer:FontDescriptionImporter
+/processor:FontDescriptionProcessor
+/processorParam:PremultiplyAlpha=True
+/processorParam:TextureFormat=Compressed
+/build:fnt/smallFont.spritefont
+

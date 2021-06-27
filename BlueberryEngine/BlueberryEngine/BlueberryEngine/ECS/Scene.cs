@@ -3,6 +3,9 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 
 namespace BlueberryEngine {
+    /// <summary>
+    /// A container for all your entities and systems
+    /// </summary>
     public class Scene {
 
         public string id;

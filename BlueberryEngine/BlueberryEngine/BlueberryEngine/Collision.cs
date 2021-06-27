@@ -1,6 +1,9 @@
 ﻿using Microsoft.Xna.Framework;
 
 namespace BlueberryEngine {
+    /// <summary>
+    /// Contains basic collision functions
+    /// </summary>
     public static class Collision {
 
         public static bool BoxCollidersOverlap(Entity a, Entity b) {

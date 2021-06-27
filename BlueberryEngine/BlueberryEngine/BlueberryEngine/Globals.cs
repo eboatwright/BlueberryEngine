@@ -1,4 +1,7 @@
 ﻿namespace BlueberryEngine {
+    /// <summary>
+    /// Change these variables for things like window size and title
+    /// </summary>
     public static class Globals {
 
         public const float SCREEN_SCALE = 3f;
