@@ -1,7 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 
 namespace BlueberryEngine {
-    class BoxCollider : IComponent {
+    public class BoxCollider : IComponent {
 
         public string id { get; set; }
 

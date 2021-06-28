@@ -52,18 +52,23 @@ namespace eboatwright.Example {
 
             scene.CreateEntity("crate", new List<IComponent>() {
                 new Transform(new Vector2(50, 50), Vector2.One, 0f),
-                new SpriteRenderer(Content.Load<Texture2D>("img/crate"), Color.White),
+                new SpriteRenderer(Content.Load<Texture2D>("img/crate"), Color.White, new Vector2(24, 24)),
                 new BoxCollider(new Vector2(24, 24)),
             }).AddTags(new List<string>() { "followCamera" });
 
             Entity blueberry = scene.CreateEntity("blueberry", new List<IComponent>() {
                 new Transform(Vector2.Zero, Vector2.One, 0f),
-                new SpriteRenderer(Content.Load<Texture2D>("img/blueberry"), Color.White),
+                new SpriteRenderer(Content.Load<Texture2D>("img/blueberry"), Color.White, new Vector2(19, 18)),
                 new RigidBody(0f, Vector2.One * 0.78f),
                 new BoxCollider(new Vector2(19, 18)),
                 new Player(0.9f, Keys.W, Keys.S, Keys.A, Keys.D),
             });
-            blueberry.AddTags(new List<string>() { "followCamera", "faceMouse" });
+            blueberry.AddTags(new List<string>() { "followCamera", "faceMouse", "seperatePhysics" });
+
+            scene.CreateEntity("particleTest", new List<IComponent>() {
+                new Transform(Vector2.Zero, Vector2.One, 0f),
+                new ParticleSpawner(30f, 0f, Vector2.One * 0.95f, new Vector2(-0.8f, 0.8f), new Vector2(-0.8f, 0.8f), 8f, Content.Load<Texture2D>("img/particle"), Color.CornflowerBlue),
+            });
 
             scene.CreateEntity("testButton", new List<IComponent>() {
                 new Transform(new Vector2(24, 24), new Vector2(2, 2), 0f),
@@ -73,15 +78,18 @@ namespace eboatwright.Example {
             });
 
             scene.CreateEntity("camera", new List<IComponent>() {
-                new Camera(Vector2.Zero, (Transform)blueberry.GetComponent("transform"), 0.1f),
+                new Camera(Vector2.Zero, (Transform)blueberry.GetComponent("transform"), 0.1f, new Vector2(-64f, 64f), new Vector2(-64f, 64f)),
             });
 
             scene
+                .AddUpdateSystem(new NonCollisionPhysicsSystem())
                 .AddUpdateSystem(new TopDownPlayerSystem())
                 .AddUpdateSystem(new MapCollisionSystem())
                 .AddUpdateSystem(new FaceMouseSystem())
                 .AddUpdateSystem(new CameraSystem())
                 .AddUpdateSystem(new ClickableSystem())
+                .AddUpdateSystem(new ParticleSystem())
+
                 .AddDrawSystem(new MapRendererSystem())
                 .AddDrawSystem(new SpriteRendererSystem())
                 .AddDrawSystem(new PanelRendererSystem());

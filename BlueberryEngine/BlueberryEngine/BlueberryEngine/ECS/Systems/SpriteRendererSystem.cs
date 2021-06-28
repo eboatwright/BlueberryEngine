@@ -22,7 +22,7 @@ namespace BlueberryEngine {
                 position -= cam.scroll;
             }
 
-            spriteBatch.Draw(sr.texture, position, new Rectangle(0, 0, sr.texture.Width, sr.texture.Height), sr.color, t.rotation, new Vector2(sr.texture.Width / 2f, sr.texture.Height / 2f), t.scale, SpriteEffects.None, 0f);
+            spriteBatch.Draw(sr.texture, position, new Rectangle(sr.x, 0, (int)sr.tileSize.X, (int)sr.tileSize.Y), sr.color, t.rotation, sr.tileSize / 2f, t.scale, SpriteEffects.None, 0f);
         }
     }
 }

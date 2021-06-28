@@ -87,7 +87,7 @@ namespace BlueberryEngine {
         }
 
         public void Update(float deltaTime, MouseState mouse, KeyboardState keyboard) {
-            List<Entity> reversedEntities = entities;
+            List<Entity> reversedEntities = entities.GetRange(0, entities.Count);
             reversedEntities.Reverse();
             foreach(IUpdateSystem system in updateSystems)
                 foreach(Entity entity in reversedEntities) {

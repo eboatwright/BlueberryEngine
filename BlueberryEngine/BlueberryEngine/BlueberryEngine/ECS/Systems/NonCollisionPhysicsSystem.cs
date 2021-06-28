@@ -12,6 +12,8 @@ namespace BlueberryEngine {
         }
 
         public void Update(Entity entity, Scene scene, float deltaTime, MouseState mouse, KeyboardState keyboard) {
+            if (entity.tags.Contains("seperatePhysics")) return;
+
             Transform t = (Transform)entity.GetComponent("transform");
             RigidBody rb = (RigidBody)entity.GetComponent("rigidBody");
 

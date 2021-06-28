@@ -1,6 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 
-namespace BlueberryEngine {
+namespace BlueberryEngine.Tools {
     /// <summary>
     /// Contains basic collision functions
     /// </summary>

@@ -1,7 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 
 namespace BlueberryEngine {
-    class Transform : IComponent {
+    public class Transform : IComponent {
 
         public string id { get; set; }
 
