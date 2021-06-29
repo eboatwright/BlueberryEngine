@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Input;
 
 namespace BlueberryEngine {
@@ -17,9 +18,9 @@ namespace BlueberryEngine {
             Transform t = (Transform)entity.GetComponent("transform");
             RigidBody rb = (RigidBody)entity.GetComponent("rigidBody");
 
-            rb.velocity.Y += rb.gravity;
+            rb.velocity.Y += rb.gravity * deltaTime;
             rb.velocity *= rb.friction;
-            t.position += rb.velocity;
+            t.position += new Vector2(rb.velocity.X, rb.velocity.Y * deltaTime);
         }
     }
 }

@@ -12,7 +12,7 @@ namespace BlueberryEngine {
         public RigidBody(float gravity, Vector2 friction) {
             id = "rigidBody";
             this.gravity = gravity;
-            this.friction = friction;
+            this.friction = Vector2.One - friction;
         }
     }
 }

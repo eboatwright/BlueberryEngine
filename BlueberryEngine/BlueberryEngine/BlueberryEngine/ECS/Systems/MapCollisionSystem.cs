@@ -18,7 +18,9 @@ namespace BlueberryEngine {
             Transform t = (Transform)entity.GetComponent("transform");
             RigidBody rb = (RigidBody)entity.GetComponent("rigidBody");
             BoxCollider collider = (BoxCollider)entity.GetComponent("boxCollider");
-            Map map = (Map)scene.FindComponent("map");
+            Entity mapEntity = scene.FindEntityOfType("map");
+            Map map = (Map)mapEntity.GetComponent("map");
+            Transform mapT = (Transform)mapEntity.GetComponent("transform");
 
             Entity tile = new Entity("tile");
             tile.AddComponents(new List<IComponent>() {
@@ -34,7 +36,7 @@ namespace BlueberryEngine {
             for(int y = 0; y <= map.map.GetUpperBound(0); y++)
                 for(int x = 0; x <= map.map.GetUpperBound(1); x++)
                     if (map.collidableTiles.Contains(map.map[y, x])) {
-                        ((Transform)tile.GetComponent("transform")).position = new Vector2(x * map.tileSize, y * map.tileSize);
+                        ((Transform)tile.GetComponent("transform")).position = mapT.position + new Vector2(x * map.tileSize, y * map.tileSize);
                         if (Collision.BoxCollidersOverlap(entity, tile)) {
                             if (rb.velocity.X < 0f)
                                 t.position.X = tileTransform.position.X + (tileBoxCollider.size.X / 2f) + (collider.size.X / 2f);
@@ -44,14 +46,14 @@ namespace BlueberryEngine {
                         }
                     }
 
-            rb.velocity.Y += rb.gravity;
+            rb.velocity.Y += rb.gravity * deltaTime;
             rb.velocity.Y *= rb.friction.Y;
-            t.position.Y += rb.velocity.Y;
+            t.position.Y += rb.velocity.Y * deltaTime;
 
             for (int y = 0; y <= map.map.GetUpperBound(0); y++)
                 for (int x = 0; x <= map.map.GetUpperBound(1); x++)
                     if (map.collidableTiles.Contains(map.map[y, x])) {
-                        ((Transform)tile.GetComponent("transform")).position = new Vector2(x * map.tileSize, y * map.tileSize);
+                        ((Transform)tile.GetComponent("transform")).position = mapT.position + new Vector2(x * map.tileSize, y * map.tileSize);
                         if (Collision.BoxCollidersOverlap(entity, tile)) {
                             if (rb.velocity.Y < 0f)
                                 t.position.Y = tileTransform.position.Y + (tileBoxCollider.size.Y / 2f) + (collider.size.Y / 2f);

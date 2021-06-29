@@ -35,9 +35,9 @@ namespace BlueberryEngine {
                 }
             }
 
-            rb.velocity.Y += rb.gravity;
+            rb.velocity.Y += rb.gravity * deltaTime;
             rb.velocity.Y *= rb.friction.Y;
-            t.position.Y += rb.velocity.Y;
+            t.position.Y += rb.velocity.Y * deltaTime;
 
             foreach (Entity otherEntity in scene.FindEntitiesOfType("boxCollider")) {
                 if (otherEntity == entity || otherEntity.GetComponent("transform") == null || otherEntity.GetComponent("clickable") != null) continue;

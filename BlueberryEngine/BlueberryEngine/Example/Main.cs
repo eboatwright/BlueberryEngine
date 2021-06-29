@@ -21,11 +21,7 @@ namespace eboatwright.Example {
         }
 
         protected override void Initialize() {
-            graphics.PreferredBackBufferWidth = Globals.SCREEN_WIDTH;
-            graphics.PreferredBackBufferHeight = Globals.SCREEN_HEIGHT;
-            graphics.ApplyChanges();
-            Window.Title = Globals.SCREEN_TITLE;
-
+            Globals.SETUP_WINDOW(graphics, Window);
             base.Initialize();
         }
 
@@ -35,6 +31,7 @@ namespace eboatwright.Example {
             scene = new Scene("scene");
 
             scene.CreateEntity("map", new List<IComponent>() {
+                new Transform(Vector2.Zero, Vector2.One, 0f),
                 new Map(new int[,]{
                     {1, 2, 1, 1, 2, 2, 1, 1, 1, 1, 2, 2, 2, 1},
                     {2, 1, 2, 1, 2, 3, 3, 3, 2, 1, 2, 1, 2, 2},
@@ -57,7 +54,7 @@ namespace eboatwright.Example {
             Entity blueberry = scene.CreateEntity("blueberry", new List<IComponent>() {
                 new Transform(Vector2.Zero, Vector2.One, 0f),
                 new SpriteRenderer(Content.Load<Texture2D>("img/blueberry"), Color.White, new Vector2(19, 18)),
-                new RigidBody(0f, Vector2.One * 0.78f),
+                new RigidBody(0f, Vector2.One * 0.22f),
                 new BoxCollider(new Vector2(19, 18)),
                 new Player(0.9f, Keys.W, Keys.S, Keys.A, Keys.D),
                 new Animator(new List<Animation>(){
@@ -69,7 +66,7 @@ namespace eboatwright.Example {
 
             scene.CreateEntity("particleTest", new List<IComponent>() {
                 new Transform(Vector2.Zero, Vector2.One, 0f),
-                new ParticleSpawner(30f, 0f, Vector2.One * 0.95f, new Vector2(-0.8f, 0.8f), new Vector2(-0.8f, 0.8f), 8f, Content.Load<Texture2D>("img/particle"), Color.CornflowerBlue),
+                new ParticleSpawner(30f, 0f, Vector2.One * 0.05f, new Vector2(-0.8f, 0.8f), new Vector2(-0.8f, 0.8f), 8f, Content.Load<Texture2D>("img/particle"), Color.CornflowerBlue),
             });
 
             scene.CreateEntity("testButton", new List<IComponent>() {
