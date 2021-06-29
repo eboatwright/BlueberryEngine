@@ -1,6 +1,11 @@
 ﻿<Properties StartupConfiguration="{8A961248-AB1F-427D-BFB0-4ACBB485D65A}|Default">
   <MonoDevelop.Ide.ItemProperties.BlueberryEngine PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workbench ActiveDocument="BlueberryEngine/BlueberryEngine/ECS/Systems/AnimationSystem.cs">
+    <Files>
+      <File FileName="BlueberryEngine/Example/Main.cs" Line="108" Column="117" />
+      <File FileName="BlueberryEngine/BlueberryEngine/ECS/Components/Animator.cs" Line="28" Column="40" />
+      <File FileName="BlueberryEngine/BlueberryEngine/ECS/Systems/AnimationSystem.cs" Line="29" Column="91" />
+    </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
@@ -9,14 +14,15 @@
               <Node name="BlueberryEngine" expanded="True">
                 <Node name="ECS" expanded="True">
                   <Node name="Components" expanded="True" />
-                  <Node name="CoreSystems" expanded="True" />
-                  <Node name="Systems" expanded="True" />
-                  <Node name="UI" expanded="True" />
+                  <Node name="Systems" expanded="True">
+                    <Node name="AnimationSystem.cs" selected="True" />
+                  </Node>
                 </Node>
-                <Node name="Tools" expanded="True" />
               </Node>
+              <Node name="Content" expanded="True" />
               <Node name="Example" expanded="True">
-                <Node name="Main.cs" selected="True" />
+                <Node name="Components" expanded="True" />
+                <Node name="Systems" expanded="True" />
               </Node>
             </Node>
           </Node>

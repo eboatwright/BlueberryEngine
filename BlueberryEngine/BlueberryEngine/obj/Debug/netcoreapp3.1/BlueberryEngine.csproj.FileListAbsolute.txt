@@ -24,5 +24,5 @@
 /Users/evanboatwright/Desktop/ALL GAME FILES/Monogame/BlueberryEngine/BlueberryEngine/BlueberryEngine/bin/Debug/netcoreapp3.1/Content/img/crate.xnb
 /Users/evanboatwright/Desktop/ALL GAME FILES/Monogame/BlueberryEngine/BlueberryEngine/BlueberryEngine/bin/Debug/netcoreapp3.1/Content/img/tileset.xnb
 /Users/evanboatwright/Desktop/ALL GAME FILES/Monogame/BlueberryEngine/BlueberryEngine/BlueberryEngine/bin/Debug/netcoreapp3.1/Content/img/uiPanel.xnb
-/Users/evanboatwright/Desktop/ALL GAME FILES/Monogame/BlueberryEngine/BlueberryEngine/BlueberryEngine/bin/Debug/netcoreapp3.1/Content/fnt/smallFont.xnb
 /Users/evanboatwright/Desktop/ALL GAME FILES/Monogame/BlueberryEngine/BlueberryEngine/BlueberryEngine/bin/Debug/netcoreapp3.1/Content/img/particle.xnb
+/Users/evanboatwright/Desktop/ALL GAME FILES/Monogame/BlueberryEngine/BlueberryEngine/BlueberryEngine/bin/Debug/netcoreapp3.1/Content/img/exclaimFont.xnb

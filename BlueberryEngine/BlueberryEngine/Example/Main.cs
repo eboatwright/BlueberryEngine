@@ -11,7 +11,6 @@ namespace eboatwright.Example {
 
         private GraphicsDeviceManager graphics;
         public SpriteBatch spriteBatch;
-        public SpriteFont font;
 
         public Scene scene;
 
@@ -32,7 +31,6 @@ namespace eboatwright.Example {
 
         protected override void LoadContent() {
             spriteBatch = new SpriteBatch(GraphicsDevice);
-            font = Content.Load<SpriteFont>("fnt/smallFont");
 
             scene = new Scene("scene");
 
@@ -62,6 +60,10 @@ namespace eboatwright.Example {
                 new RigidBody(0f, Vector2.One * 0.78f),
                 new BoxCollider(new Vector2(19, 18)),
                 new Player(0.9f, Keys.W, Keys.S, Keys.A, Keys.D),
+                new Animator(new List<Animation>(){
+                    new Animation("idle", new List<int>() { 0, 1 }, 15f, false),
+                    new Animation("moving", new List<int>() { 2, 3 }, 5f, false),
+                }),
             });
             blueberry.AddTags(new List<string>() { "followCamera", "faceMouse", "seperatePhysics" });
 
@@ -77,6 +79,11 @@ namespace eboatwright.Example {
                 new PanelRenderer(Content.Load<Texture2D>("img/uiPanel"), Color.White),
             });
 
+            scene.CreateEntity("testText", new List<IComponent>() {
+                new Transform(new Vector2(5, 5), Vector2.One, 0f),
+                new TextRenderer(Content.Load<Texture2D>("img/exclaimFont"), "hello`world!", Color.Black, 5, new List<char>(){ 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '!', '?', '.', ',', '"', '-', '=', '+', '(', ')', ':', ';', '/', '$' }),
+            });
+
             scene.CreateEntity("camera", new List<IComponent>() {
                 new Camera(Vector2.Zero, (Transform)blueberry.GetComponent("transform"), 0.1f, new Vector2(-64f, 64f), new Vector2(-64f, 64f)),
             });
@@ -89,10 +96,12 @@ namespace eboatwright.Example {
                 .AddUpdateSystem(new CameraSystem())
                 .AddUpdateSystem(new ClickableSystem())
                 .AddUpdateSystem(new ParticleSystem())
+                .AddUpdateSystem(new AnimationSystem())
 
                 .AddDrawSystem(new MapRendererSystem())
                 .AddDrawSystem(new SpriteRendererSystem())
-                .AddDrawSystem(new PanelRendererSystem());
+                .AddDrawSystem(new PanelRendererSystem())
+                .AddDrawSystem(new TextRendererSystem());
         }
 
         protected override void Update(GameTime gameTime) {

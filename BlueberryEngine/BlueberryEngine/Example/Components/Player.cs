@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework.Input;
+using BlueberryEngine;
 
-namespace BlueberryEngine {
+namespace eboatwright.Example {
     public class Player : IComponent {
 
         public string id { get; set; }
