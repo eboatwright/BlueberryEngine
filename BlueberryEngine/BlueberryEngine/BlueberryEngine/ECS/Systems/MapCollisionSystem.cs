@@ -50,15 +50,19 @@ namespace BlueberryEngine {
             rb.velocity.Y *= rb.friction.Y;
             t.position.Y += rb.velocity.Y * deltaTime;
 
+            rb.grounded = false;
             for (int y = 0; y <= map.map.GetUpperBound(0); y++)
                 for (int x = 0; x <= map.map.GetUpperBound(1); x++)
                     if (map.collidableTiles.Contains(map.map[y, x])) {
                         ((Transform)tile.GetComponent("transform")).position = mapT.position + new Vector2(x * map.tileSize, y * map.tileSize);
                         if (Collision.BoxCollidersOverlap(entity, tile)) {
-                            if (rb.velocity.Y < 0f)
+                            if (rb.velocity.Y < 0f) {
                                 t.position.Y = tileTransform.position.Y + (tileBoxCollider.size.Y / 2f) + (collider.size.Y / 2f);
-                            else if (rb.velocity.Y > 0f)
+                                if (rb.gravity < 0f) rb.grounded = true;
+                            } else if (rb.velocity.Y > 0f) {
                                 t.position.Y = tileTransform.position.Y - (tileBoxCollider.size.Y / 2f) - (collider.size.Y / 2f);
+                                if (rb.gravity > 0f) rb.grounded = true;
+                            }
                             rb.velocity.Y = 0f;
                         }
                     }

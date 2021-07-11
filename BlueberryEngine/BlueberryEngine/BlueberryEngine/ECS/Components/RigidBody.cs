@@ -8,6 +8,7 @@ namespace BlueberryEngine {
         public float gravity;
         public Vector2 friction;
         public Vector2 velocity = new Vector2();
+        public bool grounded = false;
 
         public RigidBody(float gravity, Vector2 friction) {
             id = "rigidBody";
