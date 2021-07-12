@@ -1,4 +1,4 @@
-# BlueberryEngine
+# Blueberry Engine
  A Game Engine for Monogame
 
 # About
